@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // Include Database Model
 const Employee = require("./models/Employee");
@@ -13,6 +14,8 @@ server.use(morgan("dev"));
 // Body Parser Middleware
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
+// Enable All CORS Requests
+server.use(cors());
 
 // DB Config
 const db = require("./config/database").mongoURI;
