@@ -52,6 +52,25 @@ class EmployeeEdit extends Component {
       .catch(err => console.log(err));
   };
 
+  onDelete = e => {
+    e.preventDefault();
+
+    // Make a confirm window
+    if (window.confirm("Are you sure want to DELETE this Employee?")) {
+      // delete to the database
+      axios({
+        url: `http://localhost:3000/api/employees/${this.state.id}`,
+        method: "delete"
+      })
+        .then(res => {
+          if (res !== null) {
+            this.props.history.push("/employees");
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  };
+
   render() {
     return (
       <div>
@@ -101,7 +120,9 @@ class EmployeeEdit extends Component {
                   value="Save"
                   className="btn btn-primary mr-1"
                 />
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={this.onDelete}>
+                  Delete
+                </button>
               </div>
             </form>
           </div>
