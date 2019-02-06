@@ -101,6 +101,14 @@ server.put("/api/employees/:id", (req, res) => {
     .catch(err => res.status(404).json(err));
 });
 
+// @route   DELETE api/employees
+// @desc    Delete Employee Data By Id
+server.delete("/api/employees/:id", (req, res) => {
+  Employee.findOneAndRemove({ id: req.params.id })
+    .then(() => res.json({ success: true }))
+    .catch(err => res.status(404).json({ noemployee: "No Employee Found" }));
+});
+
 const port = process.env.PORT || 3000;
 server.listen(port, () =>
   console.log(`[Server] Running on Port http://localhost:${port}/`)
