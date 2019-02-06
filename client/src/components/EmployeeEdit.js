@@ -66,6 +66,7 @@ class EmployeeEdit extends Component {
                 <label htmlFor="id">Employee Id</label>
                 <input
                   type="text"
+                  placeholder="Type Employee Id"
                   className="form-control"
                   name="id"
                   value={this.state.id}
@@ -76,6 +77,7 @@ class EmployeeEdit extends Component {
                 <label htmlFor="name">Employee Name</label>
                 <input
                   type="text"
+                  placeholder="Type Employee Name"
                   className="form-control"
                   name="name"
                   value={this.state.name}
@@ -86,6 +88,7 @@ class EmployeeEdit extends Component {
                 <label htmlFor="department">Department</label>
                 <input
                   type="text"
+                  placeholder="Type Employee Department"
                   className="form-control"
                   name="department"
                   value={this.state.department}
